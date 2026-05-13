@@ -49,3 +49,192 @@ body::after {
     transform: translateY(0);
   }
 }
+
+/* ---------- Rendered-markdown body ---------- */
+
+.prose-recipe {
+  color: var(--parchment);
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.78;
+  max-width: 68ch;
+}
+
+.prose-recipe > * + * {
+  margin-top: 1.25em;
+}
+
+.prose-recipe h2,
+.prose-recipe h3,
+.prose-recipe h4 {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.25;
+  scroll-margin-top: 5rem;
+}
+
+.prose-recipe h2 {
+  margin-top: 3em;
+  font-size: 1.75rem;
+  letter-spacing: -0.01em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--line);
+}
+
+.prose-recipe h3 {
+  margin-top: 2.25em;
+  font-size: 1.3rem;
+}
+
+.prose-recipe h4 {
+  margin-top: 2em;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.prose-recipe p {
+  color: var(--parchment);
+}
+
+.prose-recipe strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.prose-recipe em {
+  color: var(--ink);
+  font-style: italic;
+}
+
+.prose-recipe a {
+  color: var(--ember);
+  text-decoration: underline;
+  text-decoration-color: rgba(244, 185, 66, 0.35);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.prose-recipe a:hover {
+  text-decoration-color: var(--ember);
+}
+
+.prose-recipe ul,
+.prose-recipe ol {
+  padding-left: 1.4em;
+}
+
+.prose-recipe ul {
+  list-style: disc;
+}
+
+.prose-recipe ol {
+  list-style: decimal;
+}
+
+.prose-recipe li {
+  margin-top: 0.55em;
+  color: var(--parchment);
+}
+
+.prose-recipe li::marker {
+  color: var(--ember);
+}
+
+.prose-recipe li > p {
+  margin: 0;
+}
+
+.prose-recipe li > ul,
+.prose-recipe li > ol {
+  margin-top: 0.55em;
+}
+
+.prose-recipe hr {
+  border: 0;
+  height: 1px;
+  background: var(--line);
+  margin: 2.5em 0;
+}
+
+.prose-recipe blockquote {
+  border-left: 2px solid var(--ember);
+  padding: 0.25em 1.25em;
+  margin-left: 0;
+  font-style: italic;
+  color: var(--ink);
+  background: rgba(244, 185, 66, 0.04);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.prose-recipe blockquote p {
+  color: var(--ink);
+}
+
+.prose-recipe code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  font-size: 0.85em;
+  background: rgba(244, 185, 66, 0.08);
+  color: var(--ember);
+  padding: 0.15em 0.45em;
+  border-radius: 0.35rem;
+  border: 1px solid rgba(244, 185, 66, 0.12);
+}
+
+.prose-recipe pre {
+  position: relative;
+  background: #0a0908;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  padding: 1.1em 1.25em;
+  overflow-x: auto;
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.prose-recipe pre code {
+  background: transparent;
+  border: 0;
+  color: var(--parchment);
+  padding: 0;
+  font-size: inherit;
+}
+
+.prose-recipe table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  display: block;
+  overflow-x: auto;
+}
+
+.prose-recipe thead {
+  border-bottom: 1px solid var(--line);
+}
+
+.prose-recipe th {
+  text-align: left;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 0.6em 0.9em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.prose-recipe td {
+  padding: 0.6em 0.9em;
+  border-top: 1px solid var(--line);
+  color: var(--parchment);
+  vertical-align: top;
+}
+
+.prose-recipe tbody tr:hover {
+  background: rgba(244, 185, 66, 0.04);
+}
+
+.prose-recipe img {
+  border-radius: 0.85rem;
+  border: 1px solid var(--line);
+}

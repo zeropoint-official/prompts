@@ -2,30 +2,30 @@ import Link from "next/link";
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-[color:var(--line)] bg-[color:var(--panel)]/80 backdrop-blur-md">
+    <header className="sticky top-0 z-30 border-b border-[color:var(--line)] bg-[color:var(--void)]/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-4 sm:px-8">
         <Link
           href="/"
-          className="font-[family-name:var(--font-display)] text-xl tracking-tight text-[color:var(--ink)] transition-opacity hover:opacity-80"
+          className="font-[family-name:var(--font-display)] text-base tracking-tight text-[color:var(--ink)] transition-opacity hover:opacity-80 sm:text-lg"
         >
-          Pr<span className="text-[color:var(--ember)]">m</span>pts
+          Build<span className="text-[color:var(--ember)]"> · </span>Recipe
         </Link>
         <nav
           aria-label="Primary"
-          className="flex items-center gap-5 text-sm text-[color:var(--muted)]"
+          className="flex items-center gap-4 text-sm text-[color:var(--muted)] sm:gap-6"
         >
-          <a href="#gallery" className="transition-colors hover:text-[color:var(--ink)]">
-            Library
-          </a>
-          <a href="#use" className="transition-colors hover:text-[color:var(--ink)]">
+          <Link href="/#steps" className="transition-colors hover:text-[color:var(--ink)]">
+            Steps
+          </Link>
+          <Link href="/#how" className="hidden transition-colors hover:text-[color:var(--ink)] sm:inline">
             How to use
-          </a>
-          <a
-            href="#gallery"
+          </Link>
+          <Link
+            href="/recipe/readme"
             className="rounded-full border border-[color:var(--line)] px-3 py-1.5 font-medium text-[color:var(--ink)] transition-colors hover:border-[color:var(--ember)] hover:text-[color:var(--ember)]"
           >
-            Browse prompts
-          </a>
+            Read overview
+          </Link>
         </nav>
       </div>
     </header>

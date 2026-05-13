@@ -15,15 +15,15 @@ const editorial = Newsreader({
 
 export const metadata: Metadata = {
   title: {
-    default: "Prmpts — Curated AI prompts",
-    template: "%s · Prmpts",
+    default: "Build Recipe — Cinematic editorial sites, prompt by prompt",
+    template: "%s · Build Recipe",
   },
   description:
-    "A small library of practical prompt patterns for writing, code, research, and creative work—ready to copy and adapt.",
+    "Eleven self-contained prompts you paste into Claude Code, in order. The result: a Next.js site with a scroll-scrubbed hero film, pinned reveals, stacking portfolio, and an admin dashboard.",
   openGraph: {
-    title: "Prmpts — Curated AI prompts",
+    title: "Build Recipe — Cinematic editorial sites, prompt by prompt",
     description:
-      "Practical prompt templates you can steer, revise, and make your own—for calmer outputs and clearer intent.",
+      "A vibecoder-friendly documentation for building a cinematic editorial Next.js site with Claude Code.",
     type: "website",
   },
 };

@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --void: #0f0e0d;
+  --panel: rgba(255, 248, 236, 0.04);
+  --card: rgba(22, 20, 18, 0.72);
+  --line: rgba(255, 235, 200, 0.12);
+  --ink: #f6efe4;
+  --parchment: #e8dfd0;
+  --muted: #a89f92;
+  --ember: #f4b942;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--void);
+  color: var(--ink);
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 12% -10%, rgba(244, 185, 66, 0.18), transparent 46%),
+    radial-gradient(circle at 92% 4%, rgba(255, 200, 150, 0.08), transparent 38%),
+    linear-gradient(rgba(15, 14, 13, 0.55), rgba(15, 14, 13, 0.55)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.085'/%3E%3C/svg%3E");
+  opacity: 0.75;
+}
+
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.52) 100%);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,65 +1,123 @@
-import Image from "next/image";
+import { PromptCard } from "@/components/prompt-card";
+import { SiteFooter } from "@/components/footer";
+import { SiteHeader } from "@/components/site-header";
+import { prompts } from "@/lib/prompts";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="relative isolate flex min-h-full flex-col">
+      <SiteHeader />
+      <main className="relative z-[1] flex-1">
+        <section className="relative overflow-hidden border-b border-[color:var(--line)]">
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute left-[-12%] top-[-20%] h-[420px] w-[420px] rounded-full bg-[color:var(--ember)]/[0.11] blur-3xl" />
+            <div className="absolute bottom-[-30%] right-[-14%] h-[540px] w-[540px] rounded-full bg-amber-200/[0.07] blur-3xl" />
+          </div>
+          <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-16 sm:px-8 lg:pb-28 lg:pt-24">
+            <p
+              className="text-xs font-semibold uppercase tracking-[0.35em] text-[color:var(--ember)]"
+              style={{ animation: "rise 0.9s ease-out both" }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+              AI prompts
+            </p>
+            <div className="mt-6 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+              <div>
+                <h1
+                  className="font-[family-name:var(--font-display)] text-4xl leading-[1.05] text-[color:var(--ink)] sm:text-5xl lg:text-[3.65rem]"
+                  style={{ animation: "rise 0.95s ease-out 80ms both" }}
+                >
+                  Turn vague asks into deliberate instructions—for models that behave.
+                </h1>
+                <p
+                  className="mt-6 max-w-xl text-lg leading-relaxed text-[color:var(--muted)]"
+                  style={{ animation: "rise 1s ease-out 140ms both" }}
+                >
+                  Prmpts is a compact pattern library for people who paste, tweak, and ship. Copy a
+                  template, drop in your specifics, and keep the structure that earns consistency.
+                </p>
+              </div>
+              <div
+                className="rounded-2xl border border-[color:var(--line)] bg-[color:var(--card)] p-7 shadow-[0_26px_80px_-50px_rgba(0,0,0,0.75)] backdrop-blur"
+                style={{ animation: "rise 1s ease-out 220ms both" }}
+              >
+                <p className="font-[family-name:var(--font-display)] text-sm uppercase tracking-[0.26em] text-[color:var(--ember)]">
+                  Editorial note
+                </p>
+                <p className="mt-4 text-[color:var(--parchment)]">
+                  Prompts age with models—verify outputs, revise tone, add guardrails. Treat these as
+                  <span className="italic text-[color:var(--ink)]">
+                    {" "}
+                    scaffolding
+                  </span>
+                  , not scripture.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="use"
+          className="relative border-b border-[color:var(--line)] bg-[color:var(--panel)]/55"
+        >
+          <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:grid-cols-3 sm:px-8 lg:gap-12 lg:py-20">
+            {[
+              {
+                step: "01",
+                title: "Choose a shape",
+                copy: "Start from a proven skeleton: roles, constraints, and output formats that stay legible.",
+              },
+              {
+                step: "02",
+                title: "Insert your specifics",
+                copy: "Swap bracketed placeholders, add examples where it matters, shorten where it wanders.",
+              },
+              {
+                step: "03",
+                title: "Stress-test the reply",
+                copy: "Skim for assumptions, ask for revision passes, and keep a human in the loop where risk lives.",
+              },
+            ].map((item) => (
+              <div key={item.step} className="relative pl-10">
+                <span className="absolute left-0 top-1 font-mono text-xs text-[color:var(--ember)]">
+                  {item.step}
+                </span>
+                <h2 className="font-[family-name:var(--font-display)] text-xl text-[color:var(--ink)]">
+                  {item.title}
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-[color:var(--muted)]">{item.copy}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="gallery" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--ember)]">
+                Library
+              </p>
+              <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl text-[color:var(--ink)] sm:text-4xl">
+                Prompts you can borrow today
+              </h2>
+            </div>
+            <p className="max-w-md text-sm leading-relaxed text-[color:var(--muted)]">
+              Each card includes the full text—copy it into your favorite tool, then iterate in your
+              own words.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-8 lg:grid-cols-2">
+            {prompts.map((prompt, index) => (
+              <PromptCard
+                key={prompt.id}
+                prompt={prompt}
+                style={{ animation: `rise 0.95s ease-out ${260 + index * 90}ms both` }}
+              />
+            ))}
+          </div>
+        </section>
       </main>
+      <SiteFooter />
     </div>
   );
 }
